@@ -1,0 +1,53 @@
+Botão incluir 
+ ///Alterando o layout
+      bin.Enabled    := false;
+      bcan.Enabled   := true;
+      bgra.Enabled   := true;
+      bexc.Enabled   := false;
+      bsai.Enabled   := false;
+      bbus.Enabled   := false;
+      PDados.Enabled := true;
+    ///
+
+    /// comandos de criação do registro
+      SQLCID.ParamByName('PARCOD').AsInteger := 0;       // ZEREI O PAAMETRO
+      SQLCID.Active := True;                             // LIGUEI O SQL
+      CdsCid.Active := True;                             // LIGUEI O CDS
+      CdsCid.Append;                                     // ADICIONEI UM NOVO REGISTRO NO FINAL DA TABELA
+    ///
+    //ADICIONAR UM NO CÓDIGO DA CIDADE.........
+    AUXILIAR.Active         := FALSE; // DESLIGUEI O COMPONENTE PARA PODER ADICIONAR COMANDOS NO MESMO
+    AUXILIAR.CommandText    := '';    // LIMPEI O SEU CONTEUDO DE COMANDOS SQL
+    AUXILIAR.CommandText    := 'SELECT MAX(COD_CID) FROM CIDADES'; // ENCONTREI O MAIOR CÓDIGO DE CIDADE EXISTENTE NO BANCO
+    AUXILIAR.Active         := TRUE;  // ATIVEI A TABELA
+
+    CdsCidCOD_CID.AsInteger :=  AUXILIAR.FieldByName('MAX').AsInteger + 1; // REPASSEI O CONTEUDO DO MAIOR VALOR ADICIONADO DE UM AO ATRIBUTO COD_CID QUE ESTÁ NO CDSCID
+
+
+Botao cancelar
+
+ ///Alterando o layout
+      bin.Enabled    := true;
+      bcan.Enabled   := false;
+      bgra.Enabled   := false;
+      bexc.Enabled   := true;
+      bsai.Enabled   := true;
+      bbus.Enabled   := true;
+      PDados.Enabled := false;
+    ///
+
+    ///DESLIGANDO OS COMPONENTES DE ACESSO A DADOS E CANCELANDO A AÇÃO
+    CDSCID.Cancel;
+
+    CdsCid.Active  := FALSE;
+    SQLCID.Active  := FALSE;
+
+Botao gravar
+  ///Alterando o layout
+      bin.Enabled    := true;
+      bcan.Enabled   := false;
+      bgra.Enabled   := false;
+      bexc.Enabled   := true;
+      bsai.Enabled   := true;
+      bbus.Enabled   := true;
+      PDados.Enabled := false;
