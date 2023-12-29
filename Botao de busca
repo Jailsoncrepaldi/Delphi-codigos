@@ -1,0 +1,30 @@
+//Botao de busca
+
+  // carregar o form da busca na memória
+  Application.CreateForm(TF_BusCid,F_BusCid);
+  // apresenta o formulário para o nó cego do usuário
+  F_BusCid.ShowModal;
+  //retirar da memória
+  F_BusCid.Free;
+
+
+  if (sqlcid.ParamByName('PARCOD').AsInteger <> 0) then
+    begin
+
+    ///Alterando o layout
+      bin.Enabled    := false;
+      bcan.Enabled   := true;
+      bgra.Enabled   := true;
+      bexc.Enabled   := false;
+      bsai.Enabled   := false;
+      bbus.Enabled   := false;
+      PDados.Enabled := true;
+      ed_cod.Text    := '';
+
+    ///
+      SQLCID.Active := TRUE;
+      CDSCID.Active := TRUE;
+      CDSCID.Edit;
+      ed_cod.Text   := inttostr(CdsCidCOD_CID.asinteger);
+      ed_cod.Enabled := false;  
+    end;
