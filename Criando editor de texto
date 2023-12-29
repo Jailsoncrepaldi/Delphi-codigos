@@ -1,0 +1,89 @@
+
+Criando o programa Editor de texto
+
+1.	Carregue o Delphi.
+
+2.	Insira os seguintes componentes e altere suas propriedades conforme é mostrado a seguir.
+
+3.	Componente: Memo1(Guia Standard)
+
+Altere as propriedades
+Align: alClient
+Lines: Dê um duplo clique, remova o texto e clique no botão OK.
+ScrollBars: ssBoth
+
+4.	Componente: Panel1(Guia Standard)
+
+Altere as propriedades
+Align: alTop
+Caption: deixe em branco
+
+5.	Componente: BitBtn1(Guia Additional)
+Altere as propriedades
+Caption: deixe em branco
+Glyph: Clique em Load e selecione o arquivo C:\Arquivos de programas\Arquivos comuns\Borland Shared\Images\Buttons\fldropen.bmp.
+Coloque este botão sobre o componente Panel1
+
+6.	Componente: BitnBtn2(Guia Additional)
+
+Altere as propriedades
+Caption: deixe em branco
+Glyph: Clique em Load, selecione o arquivo C:\Arquivos de programas\Arquivos comuns\Borland Shared\Images\Buttons\filesave.bmp.
+Coloque este botão sobre o componente Panel1.
+
+7.	Componente: OpenDialog1(Guia Dialogs)
+
+Altere as propriedades
+DefaultExt: TXT
+Filter: (FilterName)Arquivo de Texto, (Filter)*.txt
+
+8.	Componente SaveDialog1(Guia Dialogs)
+
+Altere as propriedades
+DefaultExt: TXT
+Filter: (FilterName)Arquivo de Texto, (Filter)*.txt
+ 
+
+9.	Dê um clique duplo no componente BitBtn1 e digite o seguinte código.
+
+{Verifica se o componente OpenDialog1 pode carregar o arquivo}
+WITH OpenDialog1 DO
+IF Execute THEN
+BEGIN
+{Carrega o arquivo no componente Memo1}
+Memo1.Lines.LoadFromFile(Filename);
+END;
+
+10.	Dê um clique duplo no componente BitBtn2 e digite o seguinte código.
+
+{Verifica se o componente SaveDialog1 é capaz de salvar o arquivo}
+WITH SaveDialog1 DO
+IF Execute THEN
+BEGIN
+{Salva o arquivo}
+Memo1.Lines.SaveToFile(Filename);
+END;
+
+11.	Salve o projeto, clique no botão Run ou pressione a tecla F9 para rodar o programa. Faça os testes necessários.
+
+
+Carregando imagens
+
+Definindo as propriedades do componente Image, podemos carregar uma imagem no formulário, sem digitar uma única linha de código.
+
+Para carregar uma imagem.
+
+1.	Selecione o componente Image.
+
+2.	Na janela Object Inspector, clique em Picture
+
+
+
+
+3.	Uma caixa de diálogo se abrirá. Clique em Load, selecione um arquivo de imagem.
+
+
+
+
+4.	Clique no botão OK, a imagem será carrega no componente Image.
+
