@@ -1,0 +1,16 @@
+    IF (CHAMADA='CEP')THEN
+      BEGIN
+      cdsbai.Edit;
+              if (CDSBAICOD_BAI.AsInteger<>0)then
+                    begin
+                         f_cad_cep.CDSCEPCOD_BAI.AsInteger:=CDSBAICOD_BAI.AsInteger;
+                         f_cad_cep.CDSCEPDESC_BAI.Asstring:=CDSBAIDESC_BAI.asstring;
+
+
+                    end;
+              CDSBAI.Active:=FALSE;
+              SQLBAI.Active:=FALSE;
+              CLOSE;
+        END
+        else
+      
