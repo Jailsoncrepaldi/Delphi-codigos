@@ -1,0 +1,5 @@
+//  chamando form
+
+Application.CreateForm(TF_CadCid,F_CadCid);
+  F_CadCid.ShowModal;
+  F_CadCid.Free;
